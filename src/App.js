@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import "./App.css";
+import downloadIcon from "./tabler_download.svg";
 
 const App = () => {
   const [data, setData] = useState("");
@@ -51,19 +53,59 @@ const App = () => {
   };
 
   return (
-    <div>
-      <div>
-        <form>
-          <input type="text" id="url" name="url" onChange={dataChange} />
-          <input type="submit" value="Take a Screenshot" onClick={submitLink} />
-        </form>
-        <a href="https://code-crack.pages.dev/">
-          {imageurl === "" ? (
-            <p>No Image Enter url </p>
-          ) : (
-            <img src={imageurl} alt="Imag"></img>
-          )}
-        </a>
+    <div className="App p-16 bg-black w-full h-screen text-white flex justify-center items-center">
+      <div className="lg:flex ">
+        <div className="bg-[#1f1f1f] border-4 border-[#1f1f1f] p-8 rounded-t-md">
+          <p className="text-4xl py-4">
+            Take Beautiful Screenshot of your website in just one click
+          </p>
+          <div className="flex flex-col gap-8 py-4">
+            <div className="w-full">
+              <label>Enter URL</label>
+              <br></br>
+              <input
+                type="text"
+                id="url"
+                name="url"
+                onChange={dataChange}
+                className="mt-2 w-full p-2 rounded-md text-black font-bold"
+              />
+            </div>
+
+            <div className="flex gap-8">
+              <input
+                type="submit"
+                value="Take a Screenshot"
+                onClick={submitLink}
+                className="bg-white text-black w-fit py-2 px-4 rounded-md cursor-pointer"
+              />
+              <a
+                href={imageurl}
+                className=" text-black"
+                download="screenshot.png"
+                target="_blank"
+              >
+                <button className="flex bg-white py-2 px-4 rounded-md cursor-pointer">
+                  <img src={downloadIcon} />
+                  Download
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-8 rounded-b-md">
+          <a href="https://code-crack.pages.dev/">
+            {imageurl === "" ? (
+              <p>No Image Enter url </p>
+            ) : (
+              <img
+                src={imageurl}
+                alt="Imag"
+                className="w-full rounded shadow-2xl"
+              ></img>
+            )}
+          </a>
+        </div>
       </div>
     </div>
   );
