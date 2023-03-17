@@ -22,7 +22,7 @@ const App = () => {
   const takeScreenshot = async (link) => {
     console.log("IN side ");
     await axios
-      .post("http://localhost:5000/screenshot", {
+      .post("https://web-page-snap-backend-api.onrender.com/screenshot", {
         url: link,
       })
       .then((res) => {
