@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import "./App.css";
@@ -53,9 +53,9 @@ const App = () => {
   };
 
   return (
-    <div className="App p-16 bg-black w-full h-screen text-white flex justify-center items-center">
+    <div className="App p-16 bg-black w-full min-h-screen max-h-fit text-white flex justify-center items-center">
       <div className="lg:flex ">
-        <div className="bg-[#1f1f1f] border-4 border-[#1f1f1f] p-8 rounded-t-md">
+        <div className="bg-[#1f1f1f] w-full border-4 border-[#1f1f1f] p-8 rounded-t-md">
           <p className="text-4xl py-4">
             Take Beautiful Screenshot of your website in just one click
           </p>
@@ -84,16 +84,17 @@ const App = () => {
                 className=" text-black"
                 download="screenshot.png"
                 target="_blank"
+                rel="noreferrer"
               >
                 <button className="flex bg-white py-2 px-4 rounded-md cursor-pointer">
-                  <img src={downloadIcon} />
+                  <img src={downloadIcon} alt="screenshot" />
                   Download
                 </button>
               </a>
             </div>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-8 rounded-b-md">
+        <div className="bg-gradient-to-r w-full from-pink-500 via-red-500 to-yellow-500 p-8 rounded-b-md">
           <a href="https://code-crack.pages.dev/">
             {imageurl === "" ? (
               <p>No Image Enter url </p>
